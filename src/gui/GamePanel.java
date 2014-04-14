@@ -18,6 +18,7 @@ public class GamePanel extends javax.swing.JPanel {
      */
     public GamePanel() {
         initComponents();
+        
         car = new Car(this);
         ball = new Ball(10, 100, this);
     }
