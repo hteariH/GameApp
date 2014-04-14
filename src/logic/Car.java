@@ -4,8 +4,9 @@
  * and open the template in the editor.
  */
 
-package gui;
+package logic;
 
+import gui.GamePanel;
 import java.awt.Color;
 import java.awt.Graphics;
 
@@ -17,17 +18,17 @@ public class Car extends Thread{
     private int x;
     private final int y;
     private int length = 100;
-    GamePanel panel;
+    public GamePanel panel;
 
 //    public Car() {
 //        this.x = panel.getWidth()/2-length/2;
 //        this.y = panel.getHeight()-10;
 //    }
 
-    Car(GamePanel aThis) {
-        panel=aThis;
-        this.x = panel.getWidth()/2-length/2;
-        this.y = panel.getHeight()-10;
+    public Car(GamePanel panel) {
+        this.panel=panel;
+        this.x = this.panel.getWidth()/2-length/2;
+        this.y = this.panel.getHeight()-10;
     }
 
     public int getX() {

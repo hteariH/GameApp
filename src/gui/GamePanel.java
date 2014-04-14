@@ -2,6 +2,8 @@
 
 package gui;
 
+import logic.Car;
+import logic.Ball;
 import java.awt.Graphics;
 
 /**

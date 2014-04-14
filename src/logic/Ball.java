@@ -1,5 +1,6 @@
-package gui;
+package logic;
 
+import gui.GamePanel;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.logging.Level;
