@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package logic;
 
 import gui.GamePanel;
@@ -15,8 +14,9 @@ import java.awt.Graphics;
  * @author Alexey
  */
 public class Car extends Thread{
+
     private int x;
-    private final int y;
+    private int y;
     private int length = 100;
     public GamePanel panel;
 
@@ -24,11 +24,11 @@ public class Car extends Thread{
 //        this.x = panel.getWidth()/2-length/2;
 //        this.y = panel.getHeight()-10;
 //    }
-
     public Car(GamePanel panel) {
-        this.panel=panel;
-        this.x = this.panel.getWidth()/2-length/2;
-        this.y = this.panel.getHeight()-10;
+        this.panel = panel;
+//        this.x = x - length / 2;
+//        this.y = panel;
+        System.out.println(y);
     }
 
     public int getX() {
@@ -37,6 +37,10 @@ public class Car extends Thread{
 
     public void setX(int x) {
         this.x = x;
+    }
+    
+    public void move(int x){
+        this.x=this.x+x;
     }
 
     public int getLength() {
@@ -49,11 +53,15 @@ public class Car extends Thread{
 
     @Override
     public void run() {
-        
-        
+            
     }
+
     public void draw(Graphics g) {
+        x= panel.getWidth()/2-length/2;
+        y= panel.getHeight()-10;
         g.setColor(Color.BLACK);
-        g.drawRect(x, y, length, 15);
+        g.fillRect(x, y, length, 15);
+
+//        g.fillOval(x, y, 15, 15);
     }
 }

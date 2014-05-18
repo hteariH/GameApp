@@ -1,10 +1,9 @@
-
-
 package gui;
 
 import logic.Car;
 import logic.Ball;
 import java.awt.Graphics;
+import java.awt.event.KeyEvent;
 
 /**
  *
@@ -13,16 +12,16 @@ import java.awt.Graphics;
 public class GamePanel extends javax.swing.JPanel {
 
     Ball ball;
-    Car car;
-    
+    public Car car;
+
     /**
      * Creates new form GamePanel
      */
     public GamePanel() {
         initComponents();
-        
+
         car = new Car(this);
-        ball = new Ball(10, 100, this);
+        ball = new Ball(10, 150, this);
     }
 
     /**
@@ -33,6 +32,12 @@ public class GamePanel extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -46,16 +51,23 @@ public class GamePanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    
-    
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+        if (evt.getKeyCode()==KeyEvent.VK_LEFT){
+            car.setX(car.getX()-1);
+        }
+    }//GEN-LAST:event_formKeyPressed
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
-
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         if (ball != null) {
             ball.draw(g);
+        }
+        if (car != null) {
+            car.draw(g);
         }
     }
 
